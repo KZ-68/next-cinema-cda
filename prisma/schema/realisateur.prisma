@@ -1,0 +1,9 @@
+model Realisateur {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    nom String
+    slug String @unique
+
+    films Film[]
+ 
+    createdAt DateTime @default(now())
+}

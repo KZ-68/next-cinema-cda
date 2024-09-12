@@ -1,0 +1,12 @@
+model GenreFilm {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+ 
+    filmId String @db.ObjectId
+    film Film @relation(fields: [filmId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+ 
+    genreId String @db.ObjectId
+    genre Genre @relation(fields: [genreId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+ 
+    @@index([filmId])
+    @@index([genreId])
+}

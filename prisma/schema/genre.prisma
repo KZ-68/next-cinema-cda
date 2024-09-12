@@ -1,0 +1,9 @@
+model Genre {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    nom String
+    slug String @unique
+
+    genres GenreFilm[]
+ 
+    createdAt DateTime @default(now())
+}

@@ -1,0 +1,16 @@
+model Film {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    title String
+    description String
+    image String?
+    slug String @unique
+
+    realisateurId String? @db.ObjectId
+    realisateur Realisateur? @relation(fields: [realisateurId], references: [id])
+
+    genres GenreFilm[]
+ 
+    createdAt DateTime @default(now())
+
+    @@index([realisateurId])
+}
